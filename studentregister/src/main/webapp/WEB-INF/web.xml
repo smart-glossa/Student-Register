@@ -15,9 +15,20 @@
     	<servlet-name>studentServlet</servlet-name>
     	<servlet-class>com.smartglossa.student.studentServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>studentclassServlet</display-name>
+    	<servlet-name>studentclassServlet</servlet-name>
+    	<servlet-class>com.smartglossa.student.studentclassServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>studentServlet</servlet-name>
     	<url-pattern>/student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>studentclassServlet</servlet-name>
+    	<url-pattern>/studentclassServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -58,8 +58,6 @@ public class studentServlet extends HttpServlet {
  
 				response.getWriter().println(object);
 
-			
-
 		}
 		else if(operation.equals("getAll")){
 			JSONArray set = new JSONArray();
@@ -70,11 +68,11 @@ public class studentServlet extends HttpServlet {
 				String query = "select * from studentdetails";
 				ResultSet result = statement.executeQuery(query);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			
-			
+			response.getWriter().println(set);
 		}
 	}
 }
