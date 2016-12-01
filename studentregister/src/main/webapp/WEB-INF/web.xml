@@ -28,7 +28,7 @@
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>studentclassServlet</servlet-name>
-    	<url-pattern>/studentclassServlet</url-pattern>
+    	<url-pattern>/student</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
