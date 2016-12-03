@@ -65,9 +65,9 @@ public class studentclassServlet extends HttpServlet {
 				while(rs.next()){
 					JSONObject result1 = new JSONObject();
 					result1.put("classId",rs.getInt("classId"));
-					result1.put("sId", rs.getInt("sId"));
 					result1.put("className", rs.getString("className"));
 					result1.put("Duration", rs.getString("Duration"));
+					result1.put("sId", rs.getInt("sId"));
 					set.put(result1);
 				}
 			} catch (Exception e) {
