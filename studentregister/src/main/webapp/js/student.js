@@ -41,7 +41,7 @@ $(document).ready(function(){
 			return;
 		}
 		
-		var url="http://localhost:8080/studentregister/student?operation=register&sId="+sId+"&studentName="+studentName+"&Address="+address+"&contactNumber="+contactNumber+"&Gender="+Gender+"&DOB="+dob+"&joinDate="+joindate;
+		var url="http://localhost:8080/studentregister/students?operation=register&sId="+sId+"&studentName="+studentName+"&Address="+address+"&contactNumber="+contactNumber+"&Gender="+Gender+"&DOB="+dob+"&joinDate="+joindate;
 		$("input[type=text]").val("");
 		$.ajax({
 			url: url,
@@ -56,7 +56,7 @@ $(document).ready(function(){
 	$(document).on("keyup","#id",function(){
 		var sId = $("#id").val();
 		if(sId != ""){
-			var url = "http://localhost:8080/studentregister/student?operation=getone&sId="+sId;
+			var url = "http://localhost:8080/studentregister/students?operation=getone&sId="+sId;
 			$.ajax({
 				url: url,
 				type: 'POST'
@@ -78,27 +78,3 @@ $(document).ready(function(){
 
 
 
-function getAll()
-{
-	var url = "http://localhost:8080/studentregister/student?operation=getAll"
-	$.ajax({
-		url : url,
-		type : 'POST'
-	}).done(function(result) {
-		var result = JSON.parse(result);
-		var div = "<div >"
-		for (var i = 0; i < result.length; i++) {
-			div += "<div class='fulldetail'>"
-    		div += "<p id='na'>" + result[i].studentName + "</p>"
-			div += "<p>" + result[i].Address + "</p>"
-			div += "<p>" + result[i].contactNumber + "</p>"
-			div += "<p>" + result[i].Gender + "</p>"
-			div += "<p>" + result[i].DOB + "</p>"
-			div += "<p>" + result[i].joinDate + "</p>"
-			div += "</div>"
-
-		}
-		div += "</div>";
-		$(".details")[0].innerHTML = div;
-	});
-}

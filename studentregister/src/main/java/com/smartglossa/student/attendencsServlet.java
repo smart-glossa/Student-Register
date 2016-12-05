@@ -39,7 +39,7 @@ public class attendencsServlet extends HttpServlet {
 			JSONObject result = new JSONObject();
 		int aId=Integer.parseInt(request.getParameter("aId"));
 		String classId = request.getParameter("classId");
-		String date = request.getParameter("Date");
+		String date = request.getParameter("date");
 		String attendence = request.getParameter("attendence");
 		
 		try {
@@ -64,14 +64,14 @@ public class attendencsServlet extends HttpServlet {
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "root");
 				Statement statement = conn.createStatement();
-				String query = "select * from studentclass";
+				String query = "select * from attendence";
 				ResultSet rs = statement.executeQuery(query);
 				
 				while(rs.next()){
 					JSONObject result1 = new JSONObject();
 					result1.put("aId",rs.getInt("aId"));
 					result1.put("classId", rs.getInt("classId"));
-					result1.put("Date", rs.getString("Date"));
+					result1.put("date", rs.getString("date"));
 					result1.put("attendence", rs.getString("attendence"));
 					set.put(result1);
 				}

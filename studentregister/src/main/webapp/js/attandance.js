@@ -6,7 +6,25 @@ $(document).ready(function(){
 		var classid = $("#classId").val();
 		var date = $("#date").val();
 		var attandence = $("#attan").val();
-		var url="http://localhost:8080/studentregister/attandance?operation=add&aId="+attandenceid+"&classId="+classid+"&date="+date+"&attendence="+attandence;
+		if(attandenceid == "")
+		{
+		$("#aId").focus().css("outline-color","#e53935");
+		return;
+		}
+	if(classid == "")
+		{
+		$("#classId").focus().css("outline-color","#e53935");
+		return;
+		}
+	if(date == ""){
+		$("#date").focus().css("outline-color","#e53935");
+		return;
+	}
+	if(attandence == ""){
+		$("#attan").focus().css("outline-color","#e53935");
+		return;
+	}
+		var url="http://localhost:8080/studentregister/attendencs?operation=add&aId="+attandenceid+"&classId="+classid+"&date="+date+"&attendence="+attandence;
 		$("input[type=text]").val("");
 		$.ajax({
 			url: url,
@@ -21,26 +39,3 @@ $(document).ready(function(){
 	});
 });
 
-function getAll()
-{
-	var url = "http://localhost:8080/studentregister/attandance?operation=getAll"
-	$.ajax({
-		url : url,
-		type : 'POST'
-	}).done(function(result) {
-		var result = JSON.parse(result);
-		var table = "<table border=1px solid black >"
-		table += "<tr><th>AttandanceId</th><th>ClassId</th><th>Date</th><th>Present</th></tr>"
-		for (var i = 0; i < result.length; i++) {
-			table += "<tr>"
-		    table += "<td>" + result[i].aId + "</td>"
-            table += "<td>" + result[i].classId + "</td>"
-			table += "<td>" + result[i].date + "</td>"
-			table += "<td>" + result[i].attendence + "</td>"
-			table += "</tr>"
-
-		}
-		table += "</table>";
-		$(".attandance")[0].innerHTML = table;
-	});
-}

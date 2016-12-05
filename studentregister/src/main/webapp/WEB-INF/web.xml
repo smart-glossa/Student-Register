@@ -31,7 +31,7 @@
     </servlet>
     <servlet-mapping>
     	<servlet-name>studentServlet</servlet-name>
-    	<url-pattern>/student</url-pattern>
+    	<url-pattern>/students</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>studentclassServlet</servlet-name>
@@ -39,7 +39,7 @@
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>attendencsServlet</servlet-name>
-    	<url-pattern>/attendence</url-pattern>
+    	<url-pattern>/attendencs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

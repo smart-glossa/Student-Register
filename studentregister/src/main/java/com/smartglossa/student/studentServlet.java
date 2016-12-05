@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.omg.CORBA.Request;
 
 public class studentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -67,6 +68,19 @@ public class studentServlet extends HttpServlet {
 				Statement statement = conn.createStatement();
 				String query = "select * from studentdetails";
 				ResultSet result = statement.executeQuery(query);
+				while (result.next()) {
+					JSONObject obj = new JSONObject();
+					obj.put("sId", result.getInt("sId"));
+					obj.put("studentName", result.getString("studentName"));
+					obj.put("Address", result.getString("Address"));
+					obj.put("contactNumber", result.getString("contactNumber"));
+					obj.put("Gender", result.getString("Gender"));
+					obj.put("DOB", result.getString("DOB"));
+					obj.put("joinDate", result.getString("joinDate"));
+
+					set.put(obj);
+				}
+
 			} catch (Exception e) {
 				
 				e.printStackTrace();
@@ -74,6 +88,32 @@ public class studentServlet extends HttpServlet {
 			
 			response.getWriter().println(set);
 		}
+		else if (operation.equals("getone")) {
+			int sId = Integer.parseInt(request.getParameter("sId"));
+			JSONObject ob = new JSONObject();
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "root");
+				Statement statement = conn.createStatement();
+				String query = "select * from  studentdetails where sId=" + sId;
+				ResultSet set = statement.executeQuery(query);
+				if (set.next()) {
+					ob.put("studentName", set.getString("studentName"));
+					ob.put("Address", set.getString("Address"));
+					ob.put("contactNumber", set.getString("contactNumber"));
+					ob.put("Gender", set.getString("Gender"));
+					ob.put("DOB", set.getString("DOB"));
+					ob.put("joinDate", set.getString("joinDate"));
+				}
+
+			} catch (Exception e) {
+			
+
+				e.printStackTrace();
+			}
+			response.getWriter().println(ob);
+		}
+
 	}
-}
+}	
 

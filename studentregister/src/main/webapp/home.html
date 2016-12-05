@@ -3,23 +3,34 @@
 <head>
  <script src="js/jquery-1.12.3.js"></script>
         <script src="js/student.js"></script>
-          <script src="js/getall.js"></script>
+          <script src="js/stugetall.js"></script>
 <link rel="stylesheet" type="text/css" href="css/student.css"/>
 </head>
 <body>
+ <div id="student">
+    <h3 >Student Attandence Management</h3>
+    <center>
+      <li><button ><a href="home.html">StudentRegister</a></button></li>
+    <li><button ><a href="all.html">Studentdeatails</a></button></li>
+    <li><button ><a href="class.html">ClassDetails</a></button></li>
+    <li><button ><a href="attandance.html">AttandanceDetails</a></button></li>
+    </center>
+</div>
+       
 <center>
-<h1>Student Register</h1>
+
 <div class="registertable">
 <label><input type="text" id="id" placeholder="StudentId..*"/></label><br><br>
-   <label><input type="text" id="name" placeholder="StudentName..*"/></label><br><br>
+   <label><input type="text" id="name" placeholder="StudentName..*"/></label>
        <label><input type="text" id="address" placeholder=" Address..*"/></label><br><br>
-       <label><input type="text" id="contactNumber" placeholder="ContactNumber..*"/></label><br><br>
+       <label><input type="text" id="contactNumber" placeholder="ContactNumber..*"/></label>
        <label><input type="text" id="gender" placeholder="Gender..*"/></label><br><br>
-       <label><input type="text" id="dob" placeholder="DateOfBirth..*"/></label><br><br>
+       <label><input type="text" id="dob" placeholder="DateOfBirth..*"/></label>
         <label><input type="text" id="join" placeholder="JoinDate..*"/></label><br><br>
         <button id="add">SAVE NOW!</button>
-        </center>
+        
         </div>
+     </center>
        
         </body>
         </html>
