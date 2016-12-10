@@ -29,6 +29,13 @@
     	<servlet-name>attendencsServlet</servlet-name>
     	<servlet-class>com.smartglossa.student.attendencsServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>genderServlet</display-name>
+    	<servlet-name>genderServlet</servlet-name>
+    	<servlet-class>com.smartglossa.student.genderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>studentServlet</servlet-name>
     	<url-pattern>/students</url-pattern>
@@ -40,6 +47,10 @@
     <servlet-mapping>
     	<servlet-name>attendencsServlet</servlet-name>
     	<url-pattern>/attendencs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>genderServlet</servlet-name>
+    	<url-pattern>/gender</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
