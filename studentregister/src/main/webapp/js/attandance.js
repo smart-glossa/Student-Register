@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	getAll();
 	
-	 $("input[type='button']").click(function(){
+	 $("#submit").click(function(){
 		var attandenceid = $("#aId").val();
 		var classid = $("#classId").val();
 		var date = $("#date").val();
-		   var attandence = $("input[name='attandance']:checked").val();
+		  var attandence = $("input[name='attandance']:checked").val();
 		if(attandenceid == "")
 		{
 		$("#aId").focus().css("outline-color","#e53935");
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		return;
 	}
 		var url="http://localhost:8080/studentregister/attendencs?operation=add&aId="+attandenceid+"&classId="+classid+"&date="+date+"&attendence="+attandence;
-		$("input[type=text]").val("");
+		$("input[type=text],checkbox").val("");
 		$.ajax({
 			url: url,
 			type: 'POST'
