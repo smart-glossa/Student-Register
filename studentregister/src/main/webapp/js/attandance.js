@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	getAll();
 	
-	$(document).on('click','#submit',function(){
+	 $("input[type='button']").click(function(){
 		var attandenceid = $("#aId").val();
 		var classid = $("#classId").val();
 		var date = $("#date").val();
-		var attandence = $("#attan").val();
+		   var attandence = $("input[name='attandance']:checked").val();
 		if(attandenceid == "")
 		{
 		$("#aId").focus().css("outline-color","#e53935");
