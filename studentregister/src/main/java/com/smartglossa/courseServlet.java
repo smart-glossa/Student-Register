@@ -3,6 +3,7 @@ package com.smartglossa;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -52,7 +54,32 @@ public class courseServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		response.getWriter().println(res);
+	}else if (operation.equals("getAll")) {
+		JSONArray  re = new JSONArray();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "root");
+			Statement statement = connection.createStatement();
+			String query = "select * from course";
+			ResultSet rs = statement.executeQuery(query);
+			
+			while(rs.next()){
+				JSONObject result1 = new JSONObject();
+				result1.put("courseId",rs.getString(1));
+				result1.put("name", rs.getString(2));
+				result1.put("duration", rs.getString(3));
+				re.put(result1);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.getWriter().print(re);
+		
 	}
+		
 	}
 
 }
