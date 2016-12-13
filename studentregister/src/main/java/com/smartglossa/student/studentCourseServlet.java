@@ -20,7 +20,7 @@ public class studentCourseServlet extends HttpServlet {
        
     
     public studentCourseServlet() {
-        super();// TODO Auto-generated constructor stub
+        super();
     }
 
 	
