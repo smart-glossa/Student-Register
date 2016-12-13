@@ -12,25 +12,33 @@ CREATE TABLE `studentdetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 table-2
-
-CREATE TABLE `studentclass` (
-  `classId` int(11) NOT NULL default '0',
-  `sId` int(11) default NULL,
-  `className` varchar(50) default NULL,
-  `Duration` varchar(50) default NULL,
-  PRIMARY KEY  (`classId`),
-  KEY `sId` (`sId`),
-  CONSTRAINT `studentclass_ibfk_1` FOREIGN KEY (`sId`) REFERENCES `studentdetails` (`sId`)
+CREATE TABLE `course` (
+  `courseId` int(11) NOT NULL,
+  `name` varchar(50) default NULL,
+  `duration` varchar(50) default NULL,
+  PRIMARY KEY  (`courseId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 table-3
 
-CREATE TABLE `attendence` (
-  `aId` int(11) NOT NULL,
-  `classId` int(11) default NULL,
+CREATE TABLE `studentcourse` (
+  `sId` int(11) default NULL,
+  `courseId` int(11) default NULL,
+  KEY `sId` (`sId`),
+  KEY `courseId` (`courseId`),
+  CONSTRAINT `studentcourse_ibfk_1` FOREIGN KEY (`sId`) REFERENCES `studentdetails` (`sId`),
+  CONSTRAINT `studentcourse_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+table-4 ;
+CREATE TABLE `attendance` (
+  `sId` int(11) default NULL,
+  `courseId` int(11) default NULL,
   `date` varchar(50) default NULL,
-  `attendence` varchar(50) default NULL,
-  PRIMARY KEY  (`aId`),
-  KEY `classId` (`classId`),
-  CONSTRAINT `attendence_ibfk_1` FOREIGN KEY (`classId`) REFERENCES `studentclass` (`classId`)
+  `presents` varchar(50) default NULL,
+  KEY `sId` (`sId`),
+  KEY `courseId` (`courseId`),
+  CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`sId`) REFERENCES `studentdetails` (`sId`),
+  CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `course` (`courseId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
