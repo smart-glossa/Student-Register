@@ -38,17 +38,17 @@ public class attendencsServlet extends HttpServlet {
 		if (operation.equals("add")) {
 			JSONObject result = new JSONObject();
 		int aId=Integer.parseInt(request.getParameter("aId"));
-		String classId = request.getParameter("classId");
+		String courseId = request.getParameter("courseId");
 		String date = request.getParameter("date");
-		String attendence = request.getParameter("attendence");
+		String present = request.getParameter("presents");
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root",
 					"root");
 			Statement statement = connection.createStatement();
-			String query="insert into attendence(aId,classId,date,attendence) values("+aId+",'"
-					+ classId + "','" + date + "','"+attendence+"')";
+			String query="insert into attendance(aId,courseId,date,presents) values("+aId+",'"
+					+ courseId + "','" + date + "','"+present+"')";
 			statement.execute(query);
 			result.put("status", "1");
 			
@@ -64,15 +64,15 @@ public class attendencsServlet extends HttpServlet {
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "root");
 				Statement statement = conn.createStatement();
-				String query = "select * from attendence";
+				String query = "select * from attendance";
 				ResultSet rs = statement.executeQuery(query);
 				
 				while(rs.next()){
 					JSONObject result1 = new JSONObject();
 					result1.put("aId",rs.getInt("aId"));
-					result1.put("classId", rs.getInt("classId"));
+					result1.put("courseId", rs.getInt("courseId"));
 					result1.put("date", rs.getString("date"));
-					result1.put("attendence", rs.getString("attendence"));
+					result1.put("presents", rs.getString("presents"));
 					set.put(result1);
 				}
 			} catch (Exception e) {

@@ -40,6 +40,12 @@ $(document).ready(function(){
 			$("#join").focus().css("outline-color","#e53935");
 			return;
 		}
+		if(!isNaN(studentName.value))
+		{
+		alert("name only character");
+		studentname.value="";
+		return;
+		}
 		
 		var url="http://localhost:8080/studentregister/students?operation=register&sId="+sId+"&studentName="+studentName+"&Address="+address+"&contactNumber="+contactNumber+"&Gender="+Gender+"&DOB="+dob+"&joinDate="+joindate;
 		$("input[type=text]").val("");
