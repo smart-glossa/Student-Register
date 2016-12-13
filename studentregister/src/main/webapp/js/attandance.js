@@ -2,29 +2,29 @@ $(document).ready(function(){
 	getAll();
 	
 	 $("#submit").click(function(){
-		var attandenceid = $("#aId").val();
-		var classid = $("#classId").val();
+		var studentid = $("#sId").val();
+		var courseid = $("#couId").val();
 		var date = $("#date").val();
-		  var attandence = $("input[name='attandance']:checked").val();
-		if(attandenceid == "")
+		  var present = $("input[name='attandance']:checked").val();
+		if(studentid == "")
 		{
-		$("#aId").focus().css("outline-color","#e53935");
+		$("#sId").focus().css("outline-color","#e53935");
 		return;
 		}
-	if(classid == "")
+	if(courseid == "")
 		{
-		$("#classId").focus().css("outline-color","#e53935");
+		$("#couId").focus().css("outline-color","#e53935");
 		return;
 		}
 	if(date == ""){
 		$("#date").focus().css("outline-color","#e53935");
 		return;
 	}
-	if(attandence == ""){
-		$("#attan").focus().css("outline-color","#e53935");
+	if(present == ""){
+		$("#ab").focus().css("outline-color","#e53935");
 		return;
 	}
-		var url="http://localhost:8080/studentregister/attendencs?operation=add&aId="+attandenceid+"&classId="+classid+"&date="+date+"&attendence="+attandence;
+		var url="http://localhost:8080/studentregister/attendencs?operation=add&sId="+studentid+"&courseId="+courseid+"&date="+date+"&presents="+present;
 		$("input[type=text],checkbox").val("");
 		$.ajax({
 			url: url,

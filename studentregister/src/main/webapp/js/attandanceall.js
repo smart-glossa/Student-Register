@@ -7,13 +7,13 @@ function getAll()
 	}).done(function(result) {
 		var result = JSON.parse(result);
 		var table = "<table border=1px solid black >"
-		table += "<tr><th>AttandanceId</th><th>ClassId</th><th>Date</th><th>Present</th></tr>"
+		table += "<tr><th>StudentId</th><th>CourseId</th><th>Date</th><th>Present</th></tr>"
 		for (var i = 0; i < result.length; i++) {
 			table += "<tr>"
-		    table += "<td>" + result[i].aId + "</td>"
-            table += "<td>" + result[i].classId + "</td>"
+		    table += "<td>" + result[i].sId + "</td>"
+            table += "<td>" + result[i].courseId + "</td>"
 			table += "<td>" + result[i].date + "</td>"
-			table += "<td>" + result[i].attendence + "</td>"
+			table += "<td>" + result[i].presents + "</td>"
 			table += "</tr>"
 
 		}
