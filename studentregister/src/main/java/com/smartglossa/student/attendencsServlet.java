@@ -37,8 +37,8 @@ public class attendencsServlet extends HttpServlet {
 		String operation=request.getParameter("operation");
 		if (operation.equals("add")) {
 			JSONObject result = new JSONObject();
-		int aId=Integer.parseInt(request.getParameter("aId"));
-		String courseId = request.getParameter("courseId");
+		int sId=Integer.parseInt(request.getParameter("sId"));
+		int courseId=Integer.parseInt(request.getParameter("courseId"));
 		String date = request.getParameter("date");
 		String present = request.getParameter("presents");
 		
@@ -47,8 +47,8 @@ public class attendencsServlet extends HttpServlet {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root",
 					"root");
 			Statement statement = connection.createStatement();
-			String query="insert into attendance(aId,courseId,date,presents) values("+aId+",'"
-					+ courseId + "','" + date + "','"+present+"')";
+			String query="insert into attendance(sId,courseId,date,presents) values("+sId+","
+					+ courseId + ",'" + date + "','"+present+"')";
 			statement.execute(query);
 			result.put("status", "1");
 			
@@ -69,10 +69,10 @@ public class attendencsServlet extends HttpServlet {
 				
 				while(rs.next()){
 					JSONObject result1 = new JSONObject();
-					result1.put("aId",rs.getInt("aId"));
-					result1.put("courseId", rs.getInt("courseId"));
-					result1.put("date", rs.getString("date"));
-					result1.put("presents", rs.getString("presents"));
+					result1.put("sId",rs.getInt(1));
+					result1.put("courseId", rs.getInt(2));
+					result1.put("date", rs.getString(3));
+					result1.put("presents", rs.getString(4));
 					set.put(result1);
 				}
 			} catch (Exception e) {
