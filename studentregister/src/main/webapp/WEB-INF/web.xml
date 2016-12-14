@@ -29,13 +29,7 @@
     	<servlet-name>attendencsServlet</servlet-name>
     	<servlet-class>com.smartglossa.student.attendencsServlet</servlet-class>
     </servlet>
-    <servlet>
-    	<description>
-    	</description>
-    	<display-name>genderServlet</display-name>
-    	<servlet-name>genderServlet</servlet-name>
-    	<servlet-class>com.smartglossa.student.genderServlet</servlet-class>
-    </servlet>
+   
     <servlet>
     	<description>
     	</description>
@@ -50,6 +44,13 @@
     	<servlet-name>studentCourseServlet</servlet-name>
     	<servlet-class>com.smartglossa.student.studentCourseServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>coursesServlet</display-name>
+    	<servlet-name>coursesServlet</servlet-name>
+    	<servlet-class>com.smartglossa.student.coursesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>studentServlet</servlet-name>
     	<url-pattern>/students</url-pattern>
@@ -62,14 +63,15 @@
     	<servlet-name>attendencsServlet</servlet-name>
     	<url-pattern>/attendencs</url-pattern>
     </servlet-mapping>
-    
-    <servlet-mapping>
-    	<servlet-name>courseServlet</servlet-name>
-    	<url-pattern>/course</url-pattern>
-    </servlet-mapping>
+   
     <servlet-mapping>
     	<servlet-name>studentCourseServlet</servlet-name>
     	<url-pattern>/studentCourse</url-pattern>
+    </servlet-mapping>
+   
+    <servlet-mapping>
+    	<servlet-name>coursesServlet</servlet-name>
+    	<url-pattern>/courses</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -77,6 +79,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
         </welcome-file-list>
     </web-app>

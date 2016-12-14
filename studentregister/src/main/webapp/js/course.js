@@ -19,7 +19,7 @@ $(document).ready(function(){
 		$("#Duration").focus().css("outline-color","#e53935");
 		return;
 	}
-		var url="http://localhost:8080/studentregister/course?operation=add&courseId="+courseid+"&name="+coursename +"&duration="+duration;
+		var url="http://localhost:8080/studentregister/courses?operation=add&courseId="+courseid+"&name="+coursename +"&duration="+duration;
 		$("input[type=text]").val("");
 		$.ajax({
 			url: url,

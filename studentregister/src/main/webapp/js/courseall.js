@@ -1,6 +1,6 @@
 function getAll()
 {
-	var url = "http://localhost:8080/studentregister/course?operation=getAll"
+	var url = "http://localhost:8080/studentregister/courses?operation=getAll"
 	$.ajax({
 		url : url,
 		type : 'POST'
