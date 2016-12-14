@@ -40,7 +40,7 @@ public class attendencsServlet extends HttpServlet {
 		int sId=Integer.parseInt(request.getParameter("sId"));
 		int courseId=Integer.parseInt(request.getParameter("courseId"));
 		String date = request.getParameter("date");
-		String present = request.getParameter("presents");
+		boolean presents =Boolean.parseBoolean(request.getParameter("presents"));
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -48,7 +48,7 @@ public class attendencsServlet extends HttpServlet {
 					"root");
 			Statement statement = connection.createStatement();
 			String query="insert into attendance(sId,courseId,date,presents) values("+sId+","
-					+ courseId + ",'" + date + "','"+present+"')";
+					+ courseId + ",'" + date + "',"+presents+")";
 			statement.execute(query);
 			result.put("status", "1");
 			
@@ -72,7 +72,7 @@ public class attendencsServlet extends HttpServlet {
 					result1.put("sId",rs.getInt(1));
 					result1.put("courseId", rs.getInt(2));
 					result1.put("date", rs.getString(3));
-					result1.put("presents", rs.getString(4));
+					result1.put("presents", rs.getInt(4));
 					set.put(result1);
 				}
 			} catch (Exception e) {
