@@ -16,7 +16,7 @@ $(document).ready(function(){
 		return;
 		}
 	
-		var url="http://localhost:8080/studentregister/studentcourse?operation=add&sId="+studentid+"&courseId="+courseid;
+		var url="http://localhost:8080/studentregister/studentCourse?operation=add&sId="+studentid+"&courseId="+courseid;
 		$("input[type=text],checkbox").val("");
 		$.ajax({
 			url: url,

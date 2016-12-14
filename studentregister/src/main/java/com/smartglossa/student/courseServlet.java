@@ -65,13 +65,13 @@ public class courseServlet extends HttpServlet {
 
 				while (rs.next()) {
 					JSONObject result1 = new JSONObject();
-					result1.put("courseId", rs.getString(1));
+					result1.put("courseId", rs.getInt(1));
 					result1.put("name", rs.getString(2));
 					result1.put("duration", rs.getString(3));
 					re.put(result1);
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
