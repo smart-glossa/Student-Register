@@ -13,7 +13,13 @@ function getAll()
 		    table += "<td>" + result[i].sId + "</td>"
             table += "<td>" + result[i].courseId + "</td>"
 			table += "<td>" + result[i].date + "</td>"
-			table += "<td>" + result[i].presents + "</td>"
+			var Atten = result[i].presents;
+			if(Atten==1){
+				var aa = "Present";
+			}else{
+				var aa = "Absent";
+			}
+			table += "<td>" + aa + "</td>"
 			table += "</tr>"
 
 		}

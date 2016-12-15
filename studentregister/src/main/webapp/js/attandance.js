@@ -5,7 +5,7 @@ $(document).ready(function(){
 		var studentid = $("#sId").val();
 		var courseid = $("#couId").val();
 		var date = $("#date").val();
-		  var present = $("input[name='attandance']:checked").val();
+		 var present = $("input[name='attandance']:checked").val();
 		if(studentid == "")
 		{
 		$("#sId").focus().css("outline-color","#e53935");
