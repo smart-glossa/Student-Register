@@ -40,8 +40,11 @@ public class attendencsServlet extends HttpServlet {
 		int sId=Integer.parseInt(request.getParameter("sId"));
 		int courseId=Integer.parseInt(request.getParameter("courseId"));
 		String date = request.getParameter("date");
-		boolean presents =Boolean.parseBoolean(request.getParameter("presents"));
-		
+		boolean presents;
+		if(request.getParameter("presents") == null)
+		    presents = false;
+		else
+		    presents = true;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root",
