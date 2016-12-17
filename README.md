@@ -36,7 +36,7 @@ CREATE TABLE `attendance` (
   `sId` int(11) default NULL,
   `courseId` int(11) default NULL,
   `date` varchar(50) default NULL,
-  `presents` varchar(50) default NULL,
+  `presents` tinyint(1) default NULL,
   KEY `sId` (`sId`),
   KEY `courseId` (`courseId`),
   CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`sId`) REFERENCES `studentdetails` (`sId`),
